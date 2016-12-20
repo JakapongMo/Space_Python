@@ -1,0 +1,15 @@
+source arcade/bin/activate
+
+vim .gitignore
+
+git add .gitignore 
+
+git add models.py
+
+ git commit -m "create models"
+
+git push -u origin master
+
+python space.py 
+
+git commit -am "All set"
