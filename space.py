@@ -13,6 +13,7 @@ class ModelSprite(arcade.Sprite):
 	def sync_with_model(self):
 		if self.model:
 			self.set_position(self.model.x, self.model.y)
+			self.angle = self.model.angle
 	
 	def draw(self):
 		self.sync_with_model()
@@ -27,10 +28,12 @@ class SpaceGameWindow(arcade.Window):
 		
 		self.world = World(width, height)
 		self.ship_sprite = ModelSprite('images/ship.png', model=self.world.ship)
+		self.gold_sprite = ModelSprite('images/Gold.png', model=self.world.gold)
 	
 	def on_draw(self):
 		arcade.start_render()
 		
+		self.gold_sprite.draw()
 		self.ship_sprite.draw()
 
 	def animate(self, delta):
